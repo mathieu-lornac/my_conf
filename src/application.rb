@@ -20,7 +20,10 @@ module Application
 private
   def _sys_install(map)
     puts "About to register:#{self}"
-    self.@@install_sys = {}
+    class_eval "@@install_sys = {}; @@install_sys[:gen] = []"
+    puts "KKK #{map}"
+    map[:gen].each {|v| class_eval "@@install_sys[:gen] << '#{v}' "} if map.has_key? :gen
+    
     class_eval <<-RUBY
     def self.sys_install
       # General packages
@@ -47,8 +50,8 @@ module Application
   module Emacs
     extend Application
     
-    _sys_install({:gen => 'emacs',
-      :debian => 'emacs-goodies-el'
+    _sys_install({:gen => ['emacs'],
+      :debian => ['emacs-goodies-el']
     })
     
     module Autocomplete
