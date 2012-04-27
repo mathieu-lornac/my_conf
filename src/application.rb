@@ -1,3 +1,4 @@
+require './src/distrib'
 
 module Application
 
@@ -19,16 +20,21 @@ module Application
 
 private
   def _sys_install(map)
-    puts "About to register:#{self}"
-    class_eval "@@install_sys = {}; @@install_sys[:gen] = []"
-    puts "KKK #{map}"
-    map[:gen].each {|v| class_eval "@@install_sys[:gen] << '#{v}' "} if map.has_key? :gen
-    
+    class_eval "@@install_sys = {};"
+    map.each_pair do |k, v|
+      class_eval "@@install_sys[:#{k}] = []"
+      v.each {|val| puts "EVAL: #{k} | #{val}"; class_eval "@@install_sys[:#{k}] << '#{val}'"}
+    end
     class_eval <<-RUBY
     def self.sys_install
       # General packages
-      puts "In sys install"
-      puts @@install_sys
+      @@install_sys[:gen].each do |p|
+        puts "#{Distrib::pacman(:install)} \#{p}"
+      end
+      # Distrib specific packages
+      @@install_sys[:#{Distrib::name}].each do |p|
+        puts "#{Distrib::pacman(:install)} \#{p}"
+      end
     end
     RUBY
   end
