@@ -1,6 +1,12 @@
 require './src/distrib'
 
+module Link
+  def link (dst, src)
+  end
+end
+
 module Application
+  include Link
 
   @@apps = {}
 
@@ -16,6 +22,7 @@ module Application
        @@features
      end
      module Feature
+       include Link
        @@routines = {}
        def self.extended(other)      
          puts "Feature extension: \#{other} | \#{other.constants}"
@@ -88,6 +95,8 @@ module Application
       :debian => ['emacs-goodies-el']
     })
     
+    link '~/.emacs', 'emacs/emacs.conf'
+
     module Autocomplete
       extend Emacs::Feature
       
