@@ -6,6 +6,42 @@ module Application
 
   def self.extended(other)
     @@apps[other.to_s.split('::').last.downcase.to_sym] = other
+    
+    other.class_eval <<-RUBY
+     @@features = []
+     def self.register_feature(f)
+       @@features << f
+     end
+     def self.features
+       @@features
+     end
+     module Feature
+       @@routines = {}
+       def self.extended(other)      
+         puts "Feature extension: \#{other} | \#{other.constants}"
+         #{other}.features << other
+       end
+
+       def install
+         puts @@routines[:install]
+       end
+
+       def remove
+         puts "The following folders will be erased: \#{@@install_folders}"
+       end
+
+       def remove_routine(extra_instructions)
+       end
+
+       def install_routine (dest_folders, routine)
+         @@install_folders = dest_folders
+         @@routines[:install] = routine
+       end
+
+       def conf_routine (file, conf)
+       end
+    end
+    RUBY
   end
   
   def self.install(name)
@@ -13,12 +49,16 @@ module Application
     puts "#{name}: No such application registered"if app.nil?
     puts "Installing #{name} base package(s) on the system"
     app.sys_install
+    app.features.each do |c|
+      puts "Installing #{name}:#{c.to_s.split('::').last} feature"
+      puts c.install
+    end
   end
 
   def self.remove(name)
   end
 
-private
+#private
   def _sys_install(map)
     class_eval "@@install_sys = {};"
     map.each_pair do |k, v|
@@ -38,18 +78,6 @@ private
     end
     RUBY
   end
-
-  module Feature
-    def remove_routine(extra_instructions)
-    end
-
-    def install_routine (dest_folders, routine)
-      @@install_folders = dest_folders
-    end
-
-    def conf_routine (file, conf)
-    end
-  end
 end
 
 module Application
@@ -61,7 +89,7 @@ module Application
     })
     
     module Autocomplete
-      extend Application::Feature
+      extend Emacs::Feature
       
       install_routine "~/.emacs.d/auto-complete", """
       mkdir -p ~/.emacs.d/auto_complete
