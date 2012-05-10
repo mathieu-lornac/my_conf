@@ -65,7 +65,7 @@ module Application
   def self.remove(name)
   end
 
-#private
+private
   def _sys_install(map)
     class_eval "@@install_sys = {};"
     map.each_pair do |k, v|
@@ -121,6 +121,20 @@ module Application
      
       """
     end
+
+    module Zsh
+      extend Application
     
+      _sys_install({ :gen => ['zsh'] })
+
+      install_routine "~/.oh-my-zsh", "git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh"
+      
+      remove_routine """
+      rm -rf ~/.oh-my-zsh
+      rm -f ~/.zshrc
+      """
+      link '~/.zshrc', 'zsh/zshrc.conf'
+
+    end
   end
 end
