@@ -16,7 +16,7 @@ module Distrib
   def self.name
     dist = `lsb_release -i`
     d = @@distribs.keys.detect {|k| dist.include? k.to_s.split('::').last}
-    return @@distribs[d].to_s.split('::').last.downcase if d
+    return @@distribs[d].to_s.split('::').last.downcase.to_sym if d
   end
 
   def self.extended(other)
@@ -47,6 +47,7 @@ module Distrib
   
     package_manager 'apt-get', {
       :install => 'install',
+      :remove => 'remove',
     } 
   end
 
