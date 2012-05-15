@@ -1,7 +1,19 @@
 require './src/distrib'
 
 module Link
+  @@links = {}
+
   def link (dst, src)
+    @@links[self] = {} unless @@links[self]
+    @@links[self][dst.to_sym] = src
+  end
+
+  def self.action(name, application)
+    puts "Unrecognized action: #{action}" if name != :install and name != :remove 
+    @@links[application].each {|k, v|
+      puts "ln -s #{v} #{k}"
+      puts ENV['PWD']
+      }
   end
 end
 
@@ -10,20 +22,20 @@ end
 
 
 module Application
+
+  include Link
+
   @@apps = {}
   @@features = {}
+  @@sys_install = {}
 
   def self.features
     @@features
   end
 
-  include Link
-
   def name
     "#{self.to_s.downcase}".to_sym
   end
-
-  @@sys_install = {}
 
   def self.extended(other)
     @@apps[other.to_s.downcase.to_sym] = other 
@@ -34,25 +46,6 @@ module Application
       other.extend Application
     end
     RUBY
-  end
-
-  def create_tasks
-    puts Application.features
-    puts self
-    Application.features[self].each{ |f|
-      extend Rake::DSL
-      taskname = "#{f.to_s.split('::').last}"
-      desc "Feature"
-      task taskname  do
-      end
-      namespace taskname do
-        desc "install #{taskname}"
-        task :install  do
-          puts "----> installing #{taskname}"
-          
-        end
-      end
-    }
   end
   
   def self.sys(action, name)
@@ -68,24 +61,50 @@ module Application
     @@sys_install[self.name] = map
   end
 
-  def self.create_tasks
-    @@apps.each do |k, app| next if k.to_s.include?('::')
+  # Creates the nested tasks to deploy an application feature
+  def create_tasks
+    Application.features[self].each{ |f|
       extend Rake::DSL
-      taskname = "#{app.to_s.split('::').last.downcase}"
-      desc "Application: #{taskname} | install #{taskname} with all it's features"
-      task "#{app.to_s.split('::').last.downcase}" => ["#{taskname}:sys_install"] do       
+      taskname = "#{f.to_s.split('::').last}"
+      desc "Feature"
+      task taskname => ["#{taskname}:install"] do
       end
       namespace taskname do
         desc "install #{taskname}"
         task :install  do
-           puts "===> installing #{taskname}"
-
+          puts "----> installing #{taskname}"
+          
         end
+      end
+    }
+  end
+
+  # Creates the root tasks to deploy an application
+  def self.create_tasks
+    @@apps.each do |k, app| next if k.to_s.include?('::')
+      extend Rake::DSL
+      taskname = "#{app.to_s.split('::').last.downcase}"
+      desc "Install the application #{taskname} with all it's features"
+      task "#{app.to_s.split('::').last.downcase}" => ["#{taskname}:sys_install", "#{taskname}:install", "#{taskname}:link"] do       
+      end
+      namespace taskname do
+        desc "install #{taskname}"
+        task :install do
+           puts "===> installing #{taskname}"
+        end
+
         desc "Systems packages install #{taskname}"
         task :sys_install  do
            puts "===> installing system deps for #{taskname}"
           Application.sys(:install, taskname.to_sym)
         end
+
+        desc "link #{taskname} => creates all the symbolic links to point to this config"
+        task :link  do
+           puts "===> linking #{taskname}"
+          Link.action(:install, app)
+        end
+
         app.create_tasks
       end
     end
@@ -104,14 +123,16 @@ module Emacs
   module Autocomplete
     extend Emacs
   
-    #   install """
-    #   #   mkdir -p ~/.emacs.d/auto_complete
-    #   #   mkdir /tmp/auto_complete && cd /tmp/autocomplete
-    #   #   wget http://cx4a.org/pub/auto-complete/auto-complete-1.3.1.tar.bz2
-    #   #   tar xf auto-complete-1.3.1.tar.bz2
-    #   #   cd auto-complete-1.3.1 && echo \"~/.emacs.d/auto-complete\" | make install
-    #   #   cd ..
-    #   #   rm -rf auto-complete-1.3.1
+     # install "Autocomplete install procedure"
+
+# """
+    #     mkdir -p ~/.emacs.d/auto_complete
+    #     mkdir /tmp/auto_complete && cd /tmp/autocomplete
+    #     wget http://cx4a.org/pub/auto-complete/auto-complete-1.3.1.tar.bz2
+    #     tar xf auto-complete-1.3.1.tar.bz2
+    #     cd auto-complete-1.3.1 && echo \"~/.emacs.d/auto-complete\" | make install
+    #     cd ..
+    #     rm -rf auto-complete-1.3.1
     # """
     
     #   #   conf_routine "~/.emacs", """

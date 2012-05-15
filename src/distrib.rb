@@ -26,7 +26,6 @@ module Distrib
   private
 
   def package_manager(manager_name, *option_map)
-    puts option_map
     class_eval <<-RUBY 
     def self.pacman(command = nil)
       return "#{manager_name}" if command.nil?
