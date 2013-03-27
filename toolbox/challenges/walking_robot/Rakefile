@@ -1,0 +1,9 @@
+
+task :compile do |t|
+  system "g++ -o robot main.cpp -std=c++11 -W -Wall -Wuninitialized"
+end
+
+
+task :default => [:compile] do
+
+end

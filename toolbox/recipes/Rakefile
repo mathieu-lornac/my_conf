@@ -1,0 +1,21 @@
+
+module Sources
+  extend Rake::DSL
+
+  def self.create_tasks
+    Dir.entries('.').each do |e|
+      next unless e.end_with? '.cpp'
+      namespace 'compile' do
+        desc "Compile source: #{e}"
+        task "#{e.sub('.cpp', '')}" do
+          system "g++ -o test #{e} -std=c++11 -W -Wall -Wuninitialized"
+        end
+     end
+    end
+  end
+
+end
+
+Sources.create_tasks
+
+task
