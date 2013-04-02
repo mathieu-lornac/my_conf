@@ -1,0 +1,19 @@
+
+files = ['mathieu.lornac.cv.lv']
+
+desc "Compile the documents: #{files.join(' | ')}"
+task :default do |t|
+  files.each do |f|
+    system "pdflatex #{f}.tex"
+  end
+end
+
+desc "Remove temporary files"
+task :clean do |t|
+  ['out', 'log', 'aux'].each do |e|
+    files.each do |f|
+      rm_f "#{f}.#{e}"
+    end
+  end
+
+end

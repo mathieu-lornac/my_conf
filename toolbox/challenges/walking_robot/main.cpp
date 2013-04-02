@@ -18,12 +18,54 @@ int resolve(int distance_to_go, int cost = 0) {
   return cost;
 }
 
+//////
+
+
+template <int e, bool i>
+struct C;
+
+
+template <bool i>
+struct C<0, i>{
+  enum {
+    lessTen = 0,
+    cost = 0
+  };
+};
+
+template <int e>
+struct C<e, false>{
+  enum {
+    cost = 0
+  };
+};
+
+
+template <int e, bool iterate = true>
+struct C {
+  enum {
+    cost = ((e >= 10) ? (3 + C<e - 10, (e >= 0)>::cost) :  ( (e >= 5) ? (4 + C<e - 5, (e >= 0) >::cost) :
+							     ((e >= 3) ? (5 + C<e - 3, (e >= 0) >::cost) :
+							      ((e >= 2) ? (7 + C<e - 2, (e >= 0) >::cost) :
+							      ((e >= 1) ? (12 + C<e - 1, (e >= 0) >::cost) : 0
+							       )
+							       )
+							      )
+							     )
+	    )
+  };
+
+};
+
+
+#define VAL 14
 int main(){
-  std::cout << "Minimum time found using recursion: " << resolve(10) << std::endl;
+
+  std::cout << "Minimum time found using recursion: " << resolve(VAL) << std::endl;
 
   // If (value > c)
   // return 0
 
-  std::cout << "Compile val: " << C<5>::cost << std::endl;
+  std::cout << "Compile val: " << C<VAL>::cost - 2<< std::endl;
   return 0;
 }

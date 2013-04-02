@@ -1,0 +1,208 @@
+%% start of file `template_en.tex'.
+%% Copyright 2006-1008 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+\documentclass[10pt,a4paper]{moderncv}
+
+% moderncv themes
+\moderncvtheme[green]{classic}                 % optional argument are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fonts, instead of sans serif fonts)
+%\moderncvtheme[green]{casual}                 % optional argument are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fonts, instead of sans serif fonts)
+%\moderncvtheme[green]{classic}                % idem
+
+% character encoding
+\usepackage[utf8]{inputenc}                   % replace by the encoding you are using
+\usepackage{enumerate}
+% adjust the page margins
+\usepackage[scale=0.88]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}						% if you want to change the width of the column with the dates
+%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+\AtBeginDocument{\recomputelengths}                     % required when changes are made to page layout lengths
+
+% personal data
+\firstname{Lornac}
+\familyname{Mathieu}
+%\title{Curriculum Vitae}               % optional, remove the line if not wanted
+\address{1 place Anthony Mars}
+{06140 Vence}    % optional, remove the line if not wanted
+\mobile{06 22 45 37 54}                    % optional, remove the line if not wanted
+%\phone{phone (optional)}                      % optional, remove the line if not wanted
+%\fax{fax (optional)}                          % optional, remove the line if not wanted
+\email{mathieu.lornac@gmail.com}                      % optional, remove the line if not wanted
+%\extrainfo{Permis A et B} % optional, remove the line if not wanted
+
+%\photo[64pt]{picture}                         % '64pt' is the height the picture must be resized to and 'picture' is the name of the picture file; optional, remove the line if not wanted
+%\quote{Some quote (optional)}                 % optional, remove the line if not wanted
+
+%\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\maketitle
+
+\section{Exp\'eriences}
+
+\cventry{08/12 - 01/13}{Orange [Consultant]}{}{Sophia Antipolis}{Departement Profile and Syndication}{Environnement technique: Cassandra, Chef, C++, Php, Ruby, Git, Ubuntu}
+
+\cventry{08/12 - 01/13}{SpotImage [Consultant]}{Editeurs d'images dont l'objectif est la production de données cartographiées}{Sophia Antipolis}{Conception, impl\'ementation}{Environnement technique: C++/Qt Svn, CentOS}
+
+\cventry{03/12 - 08/12}{DoremiLabs}{D\'eveloppement d'une solution de r\'eception de flux satellites permettant la diffusion d'\'ev\`enements en direct dans les salles de cin\'ema}{Antibes}{Conception, impl\'ementation}{Environnement technique: C C++ CVS Debian}
+
+\cventry{10/11 - 03/12}{MargOconseil}{D\'eveloppement d'un framework de g\'en\'eration de code et d'interop\'erabilit\'e de langages}{Paris}{Conception, impl\'ementation}{Environnement technique: Ruby C++ Mercurial GNU/Linux}
+\cventry{08/10 - 09/11}{Ensuite Informatique}{D\'eveloppement des processeurs d'analyse de situation en continue}{Paris}{Conception, impl\'ementation}{Environnement technique: C++ Qt Flex/Bison CMake Git GNU/Linux}
+
+\section{Contributions}
+\cventry{Okular}{Lecteur multiformats de KDE}{Correction de bugs, impl\'ementation de fonctionnalit\'es}{}{}{}
+\cventry{KDev-Valgrind}{Int\'egration des outils Valgrind dans l'\'editeur KDevelop}{ Mainteneur du projet}{}{}{https://projects.kde.org/projects/playground/devtools/plugins/kdev-valgrind}
+
+\section{Formation}
+\cventry{2012}{Epitech}{Ecole d'expertise en informatique et nouvelles technologies}{5\`eme ann\'ee}{Paris}{}
+\cventry{\'Et\'e 2008}{Stage linguistique. Universit\'e Alliant}{San Diego USA}{}{}{}
+\cventry{2004--2006}{BTS Informatique de gestion}{Lyc\'ee Suzanne Valadon}{Limoges}{}{}
+\cventry{2003--2004}{MIAS (Math\'ematiques et Informatique Appliqu\'es aux sciences)}
+{1\`ere ann\'ee}{Facult\'e des sciences de Limoges}{}{}
+\cventry{2003}{Baccalaur\'eat Scientifique sp\'ecialit\'e math\'ematiques (mention A.B.)}
+{Lyc\'ee Bossuet}{Brive la Gaillarde}{}{}
+%-----------------------------------------------------------------------------
+
+\section{Langages}
+\cvcomputer{Imp\'eratifs}{C}{}{}
+\cvcomputer{Objets}{C++, Ruby, Python, Ada95}{}{}
+\cvcomputer{Analyse S\'emantique}{Flex Bison}{}{}
+\cvcomputer{Connaissances}{\LaTeX, CMake, bash, Php, Java, Ruby On Rails}{}{}
+
+%\section{Fameworks, Librairies}
+%\cvlistdoubleitem[\Neutral]{Qt}{Boost}
+
+\section{Langues}
+\cvlanguage{Anglais}{lu, parl\'e, \'ecrit}{}
+
+\section{Centres d'int\'er\^ets}
+\cvline{Projet Euler}{\small Je participe \`a ce projet qui allie algorithmique et math\'ematiques http://projecteuler.net}
+\cvline{Sports}{\small Course \`a pied, VTT, parachutisme}
+
+\renewcommand{\listitemsymbol}{-} % change the symbol for lists
+
+\section{D\'etails exp\'eriences}
+
+\cventry{SpotImage}{Cartographie}{Conception Impl\'ementation}{}{}{
+Développement d'une solution permettant la visualisation et l'édition d'images dont l'objectif est la production de données cartographiées
+\begin{enumerate}[$\bullet$ ]
+\item Adaptation à une base de code existante lourde
+  \item Abstration du modele de filtre sur image
+    \begin{enumerate}
+    \item Support d'un nouveau type de géometrie
+    \item Adapatation de l'existant à cette abstraction
+    \item Impl\'ementation d'un type de filtre
+    \end{enumerate}
+\end{enumerate}
+\smallskip
+}
+
+
+\cventry{DoremiLabs}{Cin\'ema Num\'erique, d\'epartement R\&D}{Conception Impl\'ementation}{}{}{
+\begin{enumerate}[$\bullet$ ]
+\item D\'eveloppement d'une solution permettant la transmission d'évenements en direct dans les salles de cinéma
+\item Réception de flux en DVB-S et configuration de la connexion sur un ou plusieurs transpondeurs
+\item Analyse d'un flux entrant au format T.S (Transport Stream)
+\item Re-Engineering de l'ensemble logiciel pour obtenir un support multi-clients
+  \begin{enumerate}
+  \item Lecture flux dans plusieurs salles avec des configurations différentes (langues / sous-titres)
+  \end{enumerate}
+\end{enumerate}
+\smallskip
+}
+
+
+\cventry{MargOconseil}{Finance des march\'es, d\'epartement R\&D}{Conception Impl\'ementation}{}{}{
+  Développement d'un framework de ré-engineering et génération automatique de code.
+  Miles est une solution tout à fait innovante de re-engineering applicatif. Elle permet aux clients de s’affranchir de la majorité des problématiques techniques et de se concentrer sur leur métier.
+  \begin{enumerate}[$\bullet$ ]
+  \item Framework Model-Driven
+  \item Développement en test driven avec une méthodologie agile
+  \item Programmation orientée aspect.
+  \item Génération d'une librairie dynamique en C++, basée sur le design pattern Mixin-Layers.
+  \item Interopérabilité totale entre les languages Ruby AspectJ et C++
+  \item Développement d'un convertisseur d'objets Ruby C++ au compile time
+  \item Utilisation de techniques d'introspection développées par Alexandrescu
+    (TypeTraits, Int2Type, Spécialisation partielle de template..)
+  \end{enumerate}
+  \smallskip
+}
+
+
+\cventry{Ensuite-Info}{Entreprise sp\'ecialis\'ee dans l'analyse situationnelle}{Conception Impl\'ementation}{}{}{
+  Réalisation d'un processeur d\'analyse de situation de bout en bout.
+  L'analyse de situation est une façon de représenter l'univers qui nous entoure, en éléments compréhensibles et manipulables par une machine.
+  \begin{enumerate}[$\bullet$ ]
+    \item Implémentation de 2 parseurs de langage dedi\'es \`a l'analyse de situation (Flex/Bison)
+    \item  Mise en place d'un module d'abstraction de la base de donn\'ees
+  \item Mise en place de tests unitaires
+  \item Exemples d'applications utilisant cette technologie:
+    \begin{enumerate}[$\bullet$ ]
+      \item Alectryon: Outil de veille technologique, le processeur qualifie des URLs en fonction d'un domaine de recherche défini par l'utilisateur et une application tierce présente les résultats tri\'es selon un indice de pertinence attribué par le processeur.
+      \item Duquenne: Analyse de diagnostics médicaux, le processeur est capable de détecter les singularités (mettre en évidence les traitements les mieux adaptés à une pathologie, détecter des comportements anormaux...)
+      \end{enumerate}
+  \end{enumerate}
+  \smallskip
+}
+
+%% \cventry{KDE}{Contributions logiciels libres}{}{}{}{
+%%   \begin{enumerate}[$\bullet$ ]
+%%   \item Okular: Lecteur multi-formats de documents de KDE
+%%       \begin{enumerate}[$\bullet$ ]
+%%       \item Correction de bugs
+%%       \item Implémentation de fonctionnalités
+%%       \end{enumerate}
+%%     \item Kdev-Valgrind: Intégration de valgrind au sein de l'IDE KDevelop
+%%       \begin{enumerate}[$\bullet$ ]
+%%       \item Restructuration de l'existant
+%%       \item Support de l'outil memcheck, affichage des erreurs sous forme d'arbre + interactivités avec le code source
+%%       \end{enumerate}
+%%     \item Environnement technique: C++, QT, Git, Valgrind, GDB, Emacs
+%%   \end{enumerate}
+%%   \smallskip
+%% }
+
+%% \cventry{Epitech}{Création d'un DVR (Digital Video Recorder)}{Projet Scolaire}{}{}{
+%%   \begin{enumerate}[$\bullet$ ]
+%%   \item Réaliser un DVR permettant de regarder un flux (Webcam ou fichier vid\'eo), l'enregistrer, contrôler le direct, visionner des enregistrements
+%%   \item Réalisation de 2 codecs videos: un utilisant les extensions SSE2 l'autre cod\'e en OpenCL
+%%   \item Développement d'une GUI en QT, rendu des images en QOpengl
+%%   \item Contexte multitâches où l'optimisation du code fut importante.
+%%   \item Environnement technique: C++, QT, OpenCL, OpenCV, SSE2, CMake, Git, Valgrind, GDB, Emacs
+%%   \end{enumerate}
+%%   \smallskip
+%% }
+
+%% \cventry{Epitech}{MyMalloc}{R\'ealisation d'un alloueur dynamique de  memoire}{Projet Scolaire}{}{
+%%   \begin{enumerate}[$\bullet$ ]
+%%   \item Impl\'ementation de l'algorithme invent\'e par K\&R
+%%   \item Support du multit\^aches
+%%   \item Environnement technique: C, Makefile
+%%   \end{enumerate}
+%% \bigskip}
+
+% \section{Extra 1}
+% \cvlistitem{Item 1}
+% \cvlistitem{Item 2}
+% \cvlistitem[+]{Item 3}            % optional other symbol
+
+% \section{Extra 2}
+% \cvlistdoubleitem[\Neutral]{Item 1}{Item 4}
+% \cvlistdoubleitem[\Neutral]{Item 2}{Item 5}
+% \cvlistdoubleitem[\Neutral]{Item 3}{}
+
+
+% Publications from a BibTeX file
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{publications}       % 'publications' is the name of a BibTeX file
+
+\end{document}
+
+%% end of file `template_en.tex'.
