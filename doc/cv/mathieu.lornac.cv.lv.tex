@@ -46,14 +46,13 @@
 
 \section{Exp\'eriences}
 
-\cventry{02/13 -}{Consultant - Orange}{}{Profile and Syndication}{Sophia Antipolis}{Environnement technique: Cassandra, C++, Chef, PHP, Ruby, Git, Ubuntu}
+\cventry{02/13 -}{Consultant - Orange}{}{Profile and Syndication}{Sophia Antipolis}{Environnement technique: Cassandra, C++, PHP, Ruby, Git, Ubuntu, Chef}
 \cventry{08/12 - 01/13}{Consultant - SpotImage}{Editeurs d'images dont l'objectif est la production de données cartographiées}{Ajout de fonctionnalit\'es sur des applications de cartographie}{Sophia Antipolis}{Environnement technique: C++, Qt, Svn, CentOS}
 \cventry{03/12 - 08/12}{DoremiLabs}{D\'eveloppement d'une solution de r\'eception de flux satellites permettant la diffusion d'\'ev\`enements en direct dans les salles de cin\'ema}{}{Antibes}{Environnement technique: C/C++, CVS, Debian}
 \cventry{10/11 - 03/12}{MargOconseil}{D\'eveloppement d'un framework de g\'en\'eration de code et d'interop\'erabilit\'e de langages}{}{Paris}{Environnement technique: Ruby, C++, Mercurial, GNU/Linux}
 \cventry{08/10 - 09/11}{Ensuite Informatique}{D\'eveloppement des processeurs d'analyse de situation en continue}{Conception, impl\'ementation}{Paris}{Environnement technique: C++, Qt, Flex/Bison, CMake, Git, GNU/Linux}
 
 \section{Contributions}
-\cventry{CassandraPDO}{Driver de base de donn\'ees Cassandra PHP}{Correction de bugs, prise en charges de nouveaux types de donn\'ees }{}{}{https://github.com/Orange-OpenSource/YACassandraPDO}
 \cventry{Okular}{Lecteur multiformats de KDE}{Correction de bugs, impl\'ementation de fonctionnalit\'es}{}{}{}
 \cventry{KDev-Valgrind}{Int\'egration des outils Valgrind dans l'\'editeur KDevelop}{ Mainteneur du projet}{}{}{https://projects.kde.org/projects/playground/devtools/plugins/kdev-valgrind}
 
@@ -85,6 +84,29 @@
 \renewcommand{\listitemsymbol}{-} % change the symbol for lists
 
 \section{D\'etails exp\'eriences}
+
+\cventry{Orange}{PnS}{}{}{}{
+\begin{enumerate}[$\bullet$ ]
+\item Developpement d'un module Apache de duplication de requetes. \\
+  Objectif: Dans le cadre d'une migration de donn\'ees vers une nouvelle base, maintenir temporairement l'alimentation d'une base de donn\'ees historique
+  \begin{enumerate}
+  \item Filtrage des requ\^etes selon des crit\'eres sp\'ecifiques
+  \item Modification de la requ\^ete avant duplication
+  \item Probl\'ematiques de performance (+de 1000 requetes/s)
+  \end{enumerate}
+\item Evolution d'un driver de base de donnnees Cassandra pour le langage PHP
+  \begin{enumerate}
+  \item Adaptation aux specificit\'es de CQL3
+  \item BugFixs
+  \item Support des connexions persistantes, des collections de donnees, des divers timeouts
+  \item \url{https://github.com/Orange-OpenSource/YACassandraPDO}
+  \end{enumerate}
+\end{enumerate}
+\smallskip
+}
+
+
+
 
 \cventry{SpotImage}{Cartographie}{Conception Impl\'ementation}{}{}{
 Développement d'une solution permettant la visualisation et l'édition d'images dont l'objectif est la production de données cartographiées

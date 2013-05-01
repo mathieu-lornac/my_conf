@@ -1,10 +1,14 @@
 
 files = ['mathieu.lornac.cv.lv']
 
+def compile_latex_file(f)
+  system "pdflatex #{f}.tex"
+end
+
 desc "Compile the documents: #{files.join(' | ')}"
 task :default do |t|
   files.each do |f|
-    system "pdflatex #{f}.tex"
+    compile_latex_file(f)
   end
 end
 
@@ -15,5 +19,22 @@ task :clean do |t|
       rm_f "#{f}.#{e}"
     end
   end
+end
 
+desc "Compilation loop"
+task :auto do |t|
+  lms = []
+  files.each do |f|
+    lms << Time.local(2000)
+  end
+  while 1 do
+    files.each_with_index do |f, i|
+      f = f + ".tex"
+      if File.mtime(f) > lms[i]
+        Rake::Task["default"].execute
+        lms[i] = File.mtime f
+      end
+    end
+    sleep 1
+  end
 end
