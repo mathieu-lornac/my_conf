@@ -26,7 +26,7 @@
 \familyname{Mathieu}
 %\title{Curriculum Vitae}               % optional, remove the line if not wanted
 \address{10 avenue mar\'echal Reille}
-{06600 Vence}    % optional, remove the line if not wanted
+{06600 Antibes}    % optional, remove the line if not wanted
 \mobile{06 22 45 37 54}                    % optional, remove the line if not wanted
 %\phone{phone (optional)}                      % optional, remove the line if not wanted
 %\fax{fax (optional)}                          % optional, remove the line if not wanted
@@ -36,7 +36,7 @@
 %\photo[64pt]{picture}                         % '64pt' is the height the picture must be resized to and 'picture' is the name of the picture file; optional, remove the line if not wanted
 %\quote{Some quote (optional)}                 % optional, remove the line if not wanted
 
-%\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
 
 %----------------------------------------------------------------------------------
 %            content
@@ -46,11 +46,11 @@
 
 \section{Exp\'eriences}
 
-\cventry{02/13 -}{Consultant - Orange}{}{Profile and Syndication}{Sophia Antipolis}{Environnement technique: Cassandra, C++, PHP, Ruby, Git, Ubuntu, Chef}
-\cventry{08/12 - 01/13}{Consultant - SpotImage}{Editeurs d'images dont l'objectif est la production de données cartographiées}{Ajout de fonctionnalit\'es sur des applications de cartographie}{Sophia Antipolis}{Environnement technique: C++, Qt, Svn, CentOS}
-\cventry{03/12 - 08/12}{DoremiLabs}{D\'eveloppement d'une solution de r\'eception de flux satellites permettant la diffusion d'\'ev\`enements en direct dans les salles de cin\'ema}{}{Antibes}{Environnement technique: C/C++, CVS, Debian}
-\cventry{10/11 - 03/12}{MargOconseil}{D\'eveloppement d'un framework de g\'en\'eration de code et d'interop\'erabilit\'e de langages}{}{Paris}{Environnement technique: Ruby, C++, Mercurial, GNU/Linux}
-\cventry{08/10 - 09/11}{Ensuite Informatique}{D\'eveloppement des processeurs d'analyse de situation en continue}{Conception, impl\'ementation}{Paris}{Environnement technique: C++, Qt, Flex/Bison, CMake, Git, GNU/Linux}
+\cventry{02/13 -}{Consultant - Orange}{}{Profile and Syndication}{Sophia Antipolis}{Environnement: C++, PHP, Ruby, NOSQL(Cassandra), Git, Ubuntu, Chef}
+\cventry{08/12 - 01/13}{Consultant - SpotImage}{Editeurs d'images dont l'objectif est la production de données cartographiées}{Ajout de fonctionnalit\'es sur des applications de cartographie}{Sophia Antipolis}{Environnement: C++, Qt, Svn, CentOS}
+\cventry{03/12 - 08/12}{DoremiLabs}{D\'eveloppement d'une solution de r\'eception de flux satellites permettant la diffusion d'\'ev\`enements en direct dans les salles de cin\'ema}{}{Antibes}{Environnement: C/C++, CVS, Debian}
+\cventry{10/11 - 03/12}{MargOconseil}{D\'eveloppement d'un framework de g\'en\'eration de code et d'interop\'erabilit\'e de langages}{}{Paris}{Environnement: Ruby, C++, Mercurial, GNU/Linux}
+\cventry{08/10 - 09/11}{Ensuite Informatique}{D\'eveloppement des processeurs d'analyse de situation en continue}{Conception, impl\'ementation}{Paris}{Environnement: C++, Qt, Flex/Bison, CMake, Git, GNU/Linux}
 
 \section{Contributions}
 \cventry{Okular}{Lecteur multiformats de KDE}{Correction de bugs, impl\'ementation de fonctionnalit\'es}{}{}{}
@@ -85,20 +85,17 @@
 
 \section{D\'etails exp\'eriences}
 
-\cventry{Orange}{PnS}{}{}{}{
+\cventry{02/13 - , Orange}{PnS}{}{}{}{
 \begin{enumerate}[$\bullet$ ]
 \item Developpement d'un module Apache de duplication de requetes. \\
-  Objectif: Dans le cadre d'une migration de donn\'ees vers une nouvelle base, maintenir temporairement l'alimentation d'une base de donn\'ees historique
+  L'objectif est de faciliter la migration de donn\'ees en maintenant une double alimentation ancienne/nouvelle base le temps de s'assurer que le nouveau systeme fonctionne.
   \begin{enumerate}
   \item Filtrage des requ\^etes selon des crit\'eres sp\'ecifiques
   \item Modification de la requ\^ete avant duplication
   \item Probl\'ematiques de performance (+de 1000 requetes/s)
   \end{enumerate}
-\item Evolution d'un driver de base de donnnees Cassandra pour le langage PHP
+\item Evolution d'un driver de base de donnn\'ees Cassandra pour le langage PHP
   \begin{enumerate}
-  \item Adaptation aux specificit\'es de CQL3
-  \item BugFixs
-  \item Support des connexions persistantes, des collections de donnees, des divers timeouts
   \item \url{https://github.com/Orange-OpenSource/YACassandraPDO}
   \end{enumerate}
 \end{enumerate}
@@ -108,7 +105,7 @@
 
 
 
-\cventry{SpotImage}{Cartographie}{Conception Impl\'ementation}{}{}{
+\cventry{08/12 - 01/13, SpotImage}{Cartographie}{Conception Impl\'ementation}{}{}{
 Développement d'une solution permettant la visualisation et l'édition d'images dont l'objectif est la production de données cartographiées
 \begin{enumerate}[$\bullet$ ]
 \item Adaptation à une base de code existante lourde
@@ -123,7 +120,7 @@ Développement d'une solution permettant la visualisation et l'édition d'images
 }
 
 
-\cventry{DoremiLabs}{Cin\'ema Num\'erique, d\'epartement R\&D}{Conception Impl\'ementation}{}{}{
+\cventry{03/12 - 08/12, DoremiLabs}{Cin\'ema Num\'erique, d\'epartement R\&D}{Conception Impl\'ementation}{}{}{
 \begin{enumerate}[$\bullet$ ]
 \item D\'eveloppement d'une solution permettant la transmission d'évenements en direct dans les salles de cinéma
 \item Réception de flux en DVB-S et configuration de la connexion sur un ou plusieurs transpondeurs
@@ -137,7 +134,7 @@ Développement d'une solution permettant la visualisation et l'édition d'images
 }
 
 
-\cventry{MargOconseil}{Finance des march\'es, d\'epartement R\&D}{Conception Impl\'ementation}{}{}{
+\cventry{10/11 - 03/12, MargOconseil}{Finance des march\'es, d\'epartement R\&D}{Conception Impl\'ementation}{}{}{
   Développement d'un framework de ré-engineering et génération automatique de code.
   Miles est une solution tout à fait innovante de re-engineering applicatif. Elle permet aux clients de s’affranchir de la majorité des problématiques techniques et de se concentrer sur leur métier.
   \begin{enumerate}[$\bullet$ ]
@@ -154,7 +151,7 @@ Développement d'une solution permettant la visualisation et l'édition d'images
 }
 
 
-\cventry{Ensuite-Info}{Entreprise sp\'ecialis\'ee dans l'analyse situationnelle}{Conception Impl\'ementation}{}{}{
+\cventry{08/10 - 09/11, Ensuite-Info}{Entreprise sp\'ecialis\'ee dans l'analyse situationnelle}{Conception Impl\'ementation}{}{}{
   Réalisation d'un processeur d\'analyse de situation de bout en bout.
   L'analyse de situation est une façon de représenter l'univers qui nous entoure, en éléments compréhensibles et manipulables par une machine.
   \begin{enumerate}[$\bullet$ ]
@@ -167,7 +164,6 @@ Développement d'une solution permettant la visualisation et l'édition d'images
       \item Duquenne: Analyse de diagnostics médicaux, le processeur est capable de détecter les singularités (mettre en évidence les traitements les mieux adaptés à une pathologie, détecter des comportements anormaux...)
       \end{enumerate}
   \end{enumerate}
-  \smallskip
 }
 
 %% \cventry{KDE}{Contributions logiciels libres}{}{}{}{
