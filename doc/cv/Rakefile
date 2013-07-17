@@ -1,5 +1,8 @@
 
-files = ['mathieu.lornac.cv.lv']
+files = [
+         'mathieu.lornac.cv.lv',
+         'mathieu.lornac.resume'
+        ]
 
 def compile_latex_file(f)
   system "pdflatex #{f}.tex"

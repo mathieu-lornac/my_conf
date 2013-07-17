@@ -1,0 +1,179 @@
+%% start of file `template_en.tex'.
+%% Copyright 2006-1008 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+\documentclass[10pt,a4paper]{moderncv}
+
+% moderncv themes
+\moderncvtheme[green]{classic}                 % optional argument are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fonts, instead of sans serif fonts)
+%\moderncvtheme[green]{casual}                 % optional argument are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fonts, instead of sans serif fonts)
+%\moderncvtheme[green]{classic}                % idem
+
+% character encoding
+\usepackage[utf8]{inputenc}                   % replace by the encoding you are using
+\usepackage{enumerate}
+% adjust the page margins
+\usepackage[scale=0.86]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}						% if you want to change the width of the column with the dates
+%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+\AtBeginDocument{\recomputelengths}                     % required when changes are made to page layout lengths
+
+% personal data
+\familyname{Mathieu}
+\firstname{Lornac}
+%\title{Curriculum Vitae}               % optional, remove the line if not wanted
+\address{10 avenue mar\'echal Reille}{06600 Antibes}    % optional, remove the line if not wanted
+\mobile{0033 622 45 37 54}                    % optional, remove the line if not wanted
+%\phone{phone (optional)}                      % optional, remove the line if not wanted
+%\fax{fax (optional)}                          % optional, remove the line if not wanted
+\email{mathieu.lornac@gmail.com}                      % optional, remove the line if not wanted
+%\extrainfo{Permis A et B} % optional, remove the line if not wanted
+
+%\photo[64pt]{picture}                         % '64pt' is the height the picture must be resized to and 'picture' is the name of the picture file; optional, remove the line if not wanted
+%\quote{Some quote (optional)}                 % optional, remove the line if not wanted
+
+%\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\maketitle
+
+\section{Work Experience}
+
+\cventry{02/13 - }{Orange - Ausy Consultant}{Profile and Syndication department}{Sophia Antipolis}{}{Technical Environment:PHP, C++, Ruby, CVS, Git, Chef}
+\cventry{08/12 - 01/13}{Spot Image - Ausy Consultant}{Improvement of geo-production editors}{Sophia Antipolis}{}{Technical Environment:C++, Qt, Boost, SVN/Git}
+\cventry{02/12 - 07/12}{DoremiLabs}{}{Sophia Antipolis}{Improvement of a live streaming solution for cinema shows, satellite stream reception support}{Technical Environment: C/C++ CVS, Debian3, x86}
+\cventry{09/11 - 02/12}{MargOconseil}{Development of a code generation and language interoperability framework}{Paris}{Technical design, realisation}{Technical Environment: Ruby, C++, Mercurial}
+\cventry{08/10 - 08/11}{Ensuite Informatique}{Development of situational analysis processors}{Paris}{Technical design, realisation}{Technical Environment: C++, QtCore, Flex/Bison, CMake, Git}
+
+\section{Free software contributions}
+\cventry{YACassandraPDO}{PHP Data Object driver for the cassandra database system}{Support of CQL3 features, bugfixes, performance and stability improvements}{}{}{\url{https://github.com/Orange-OpenSource/YACassandraPDO}}
+\cventry{Okular}{KDE's Universal Document Viewer}{Bug fixing}{small implementations}{}{}
+\cventry{KDev-Valgrind}{Integration of the Valgrind tools in KDevelop}{Project Maintainer}{}{}{\url{https://projects.kde.org/projects/playground/devtools/plugins/kdev-valgrind}}
+
+\section{Education}
+\cventry{2012}{Epitech}{Master of Science in Information Technology}{}{Paris, France}{Major: Computer Programming}
+\cventry{Summer 2008}{Alliant International University}{San Diego CA, USA}{}{}{English Class with EF Education}
+\cventry{2004 - 2006}{Two Year Technical Degree}{Lycee Suzanne Valadon}{Limoges}{Diploma BTS}{Major: Information Technology}
+\cventry{2003--2004}{MIAS (Math\'ematics and IT applied to sciences)}{}{Science faculty of Limoges}{}{}
+%-----------------------------------------------------------------------------
+
+\section{Computer Skills}
+\cvcomputer{Imperative}{C, Ada}{}{}
+\cvcomputer{Object Oriented}{C++, Ruby, PHP, Python}{}{}
+\cvcomputer{Knowledge}{\LaTeX, bash, CMake, Java, RoR, Flex/Bison}{}{}
+
+%% \section{Fameworks, Libraries}
+%% \cvlistdoubleitem[\Neutral]{Qt}{Boost}
+
+
+\section{Languages}
+\cvlanguage{French}{Mother tongue}{}{}
+\cvlanguage{English}{Good level }{both written and oral}{}
+
+\section{Interests and Activities}
+\cvline{Project Euler}{\small I participate to this challenge which allies algorithmic and mathematics \url{http://projecteuler.net}}
+\cvline{Sports}{Mountain biking, Ultimate frisbee, Basketball}
+
+\newpage
+\renewcommand{\listitemsymbol}{-} % change the symbol for lists
+
+\section{Work Experience Details}
+
+
+\cventry{02/13 - , Orange}{Profile and Syndication}{}{}{}{
+  \begin{enumerate}[$\bullet$ ]
+  \item Development of a request duplication Apache module. \\
+    Duplication of requests that matches defined criterias. The target is here to feed both the former and the new database systems in order to ensure no regression has been introduced by the lastest release.
+    \begin{enumerate}
+    \item Filtering on HTTP requests, based on RegExp. Body and/or header analysis
+    \item Request modification before duplication
+    \item Performance sensitivity (more than 1000 requests/s)
+    \end{enumerate}
+  \item Evolution of a PHP Data Object driver for the cassandra database system
+    \begin{enumerate}
+    \item BugFixing on types convertion
+    \item Support of complex types (collections)
+    \item Persistent connections support
+    \end{enumerate}
+  \end{enumerate}
+  \smallskip
+}
+
+\cventry{08/12 - 01/13, SpotImage}{Cartographie}{Conception Impl\'ementation}{}{}{
+The Pixel Factory is a complete suite that produces geoagraphical images.
+\begin{enumerate}[$\bullet$ ]
+\item Maintenance and implemantation of new features on graphical editors that gives the opportunity to fix algorithms glitches
+    \begin{enumerate}
+    \item Abstraction of the filter's base geometry
+    \item Adaptation to a large and complex source code
+    \item Realisation of a new filter type
+    \end{enumerate}
+\end{enumerate}
+\smallskip
+}
+
+
+%Integration of a DVB-S receiver and improvements of the streaming platform
+ \cventry{DoremiLabs}{Digital Cinema solutions}{Improvement of the live streaming platform}{}{}{
+ \begin{enumerate}[$\bullet$]
+   \item Integration of a DVBS-receiver card (Satellite)
+   \item Transport Stream content analyse (Program list, languages, subtitles...)
+   \item Transformation of the streaming platform from a single stream capacity to a multi client multi-stream system
+ \end{enumerate}
+ \smallskip
+ }
+
+ \cventry{MargOconseil}{Financial consulting, R\&D team}{Conception Implementation}{}{}{
+   Development of a re-engineering and code generation framework. \\
+   '''CodeCase''' is an innovative solution that facilitates the
+   \begin{enumerate}[$\bullet$]
+   \item Model driven development
+   \item C++ code generation from the description of a model in Ruby
+   \item Compile time object converter between Ruby and C++ (Introspection techniques developped by Alexandrescu)
+   \end{enumerate}
+ \smallskip
+ }
+
+ \cventry{MargOconseil}{Financial consulting, R\&D team}{Conception Implementation}{}{}{
+   Development of a re-engineering and code generation framework called CodeCase \\
+   \begin{enumerate}[$\bullet$]
+   \item Model driven, Test driven, Aspect oriented development using Agile methodology
+   \item Compile time object converter between Ruby and C++ (Introspection techniques developped by Alexandrescu)
+   \item C++ Ruby AspectJ language interoperability
+   \end{enumerate}
+ \smallskip
+ }
+
+
+\cventry{Ensuite-Info}{Company specialized in situational analysis}{Conception Implementation}{}{}{
+\begin{enumerate}[$\bullet$ ]
+  \item Development of the processor core, realization of 2 languages parsers using flex/bison, network communications, XML parsers, database abstraction, task scheduler
+  \item Unary tests
+  \end{enumerate}
+\smallskip
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+% Publications from a BibTeX file
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{publications}       % 'publications' is the name of a BibTeX file
+
+\end{document}
