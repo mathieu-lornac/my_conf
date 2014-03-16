@@ -37,7 +37,7 @@
 %\quote{Some quote (optional)}                 % optional, remove the line if not wanted
 
 \nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
-
+\usepackage{graphicx}
 %----------------------------------------------------------------------------------
 %            content
 %----------------------------------------------------------------------------------
@@ -46,8 +46,8 @@
 
 \section{Exp\'eriences}
 
-\cventry{02/13 -}{Consultant - Orange}{}{Profile and Syndication}{Sophia Antipolis}{Environnement: C++, PHP, Ruby, NOSQL(Cassandra), Ubuntu}
-\cventry{08/12 - 01/13}{Consultant - SpotImage}{Production d'images satellites et a\'eriennes}{Evolution et maintenance d'\'editeurs d'images d\'edi\'es \`a la production de données cartographiées}{Sophia Antipolis}{Environnement: C++, Qt, CentOS}
+\cventry{02/13 -}{Consultant Ausy pour Orange}{}{Profile and Syndication}{Sophia Antipolis}{Environnement: C++, PHP, Ruby, NOSQL(Cassandra), Ubuntu}
+\cventry{08/12 - 01/13}{Consultant Ausy pour SpotImage}{Production d'images satellites et a\'eriennes}{Evolution et maintenance d'\'editeurs d'images d\'edi\'es \`a la production de données cartographiées}{Sophia Antipolis}{Environnement: C++, Qt, CentOS}
 \cventry{03/12 - 08/12}{DoremiLabs}{Cin\'ema num\'erique}{D\'eveloppement d'une solution de r\'eception de flux satellites permettant la diffusion d'\'ev\`enements en direct en salles de cin\'ema}{Sophia Antipolis}{Environnement: C/C++, CVS, Debian}
 \cventry{10/11 - 03/12}{MargOconseil}{Finance des march\'es, D\'eveloppement d'un framework de g\'en\'eration de code et d'interop\'erabilit\'e de langages}{}{Paris}{Environnement: Ruby, C++, Mercurial, GNU/Linux}
 \cventry{08/10 - 09/11}{Ensuite Informatique}{D\'eveloppement de processeurs d'analyse de situation en continue}{Conception, impl\'ementation}{Paris}{Environnement: C++, Qt, Flex/Bison, CMake, Git, GNU/Linux}
@@ -63,9 +63,14 @@
 %-----------------------------------------------------------------------------
 
 \section{Technos}
-\cvcomputer{Langages}{C++, C, Ruby, Php, CMake}{}{}
+\cvcomputer{Langages}{\em{C++} \hfill \includegraphics[trim = 0mm 9.9mm 0mm 36mm, clip, scale=0.35]{star_rate.png}}{}{\em{C} \hfill \includegraphics[trim = 0mm 9.9mm 0mm 36mm, clip, scale=0.35]{star_rate.png}}
+\cvcomputer{}{\em{Ruby} \hfill \includegraphics[trim = 0mm 23mm 0mm 26mm, clip, scale=0.35]{star_rate.png}}{}{\em{Php} \hfill \includegraphics[trim = 0mm 36mm 0mm 13mm, clip, scale=0.35]{star_rate.png}}
+\cvcomputer{}{\em{Cmake} \hfill \includegraphics[trim = 0mm 37mm 0mm 13mm, clip, scale=0.35]{star_rate.png}}{}{\em{Java} \hfill \includegraphics[trim = 0mm 50mm 0mm 0mm, clip, scale=0.35]{star_rate.png}}
+
+
+%\cvcomputer{Langages}{C++, C, Ruby, Php, CMake}{}{}
 %\cvcomputer{Analyse S\'emantique}{Flex Bison}{}{}
-\cvcomputer{Connaissances}{\LaTeX, bash, Java, RoR}{}{}
+\cvcomputer{Connaissances}{\LaTeX, bash, RoR}{}{}
 
 %\section{Fameworks, Librairies}
 %\cvlistdoubleitem[\Neutral]{Qt}{Boost}
@@ -81,26 +86,10 @@
 \newpage
 \section{D\'etails exp\'eriences}
 
-%% \cventry{02/13 - , Orange}{PnS}{}{}{}{
-%% \begin{enumerate}[$\bullet$ ]
-%% \item Developpement d'un module Apache de duplication de requetes. \\
-%%   L'objectif est de faciliter la migration de donn\'ees en maintenant une double alimentation ancienne/nouvelle base le temps de s'assurer que le nouveau systeme fonctionne.
-%%   \begin{enumerate}
-%%   \item Filtrage des requ\^etes selon des crit\'eres sp\'ecifiques
-%%   \item Modification de la requ\^ete avant duplication
-%%   \item Probl\'ematiques de performance (+de 1000 requetes/s)
-%%   \end{enumerate}
-%% \item Evolution d'un driver de base de donnn\'ees Cassandra pour le langage PHP
-%%   \begin{enumerate}
-%%   \item \url{https://github.com/Orange-OpenSource/YACassandraPDO}
-%%   \end{enumerate}
-%% \end{enumerate}
-%% \smallskip
-%% }
 
-\cventry{02/13 - , Orange}{PnS}{}{}{}{
+\cventry{02/13 - , Consultant Ausy pour Orange}{PnS}{}{}{}{
 \begin{enumerate}[$\bullet$ ]
-\item Developpement d'un module Apache de duplication de requetes. Mod\_dup permet de tester un web service candidat \`a une mise en production, en conditions iso-production SANS impact sur la QoS
+\item D\'eveloppement d'un module Apache de duplication de requ\^etes. Mod\_dup permet de tester un web service candidat \`a une mise en production, en conditions iso-production SANS impact sur la QoS
   \begin{enumerate}
   \item \url{https://github.com/Orange-OpenSource/mod_dup}
   \end{enumerate}
@@ -110,24 +99,26 @@
   \item \url{https://github.com/Orange-OpenSource/YACassandraPDO}
   \end{enumerate}
 \item Migration des diff\'erentes BDD du web service PHP vers la base Cassandra
+\item Animation d'une formation au langage Ruby
 \item Int\'egration continue, D\'eveloppement Agile
 \end{enumerate}
 \bigskip
 }
 
 
-\cventry{08/12 - 01/13, SpotImage}{Cartographie}{Conception Impl\'ementation}{}{}{
+\cventry{08/12 - 01/13, Consultant Ausy pour SpotImage}{Cartographie}{Conception Impl\'ementation}{}{}{
 Développement d'une solution permettant la visualisation et l'édition d'images dont l'objectif est la production de données cartographiées
 \begin{enumerate}[$\bullet$ ]
 \item Impl\'ementation d'un filtre permettant de corriger des niveaux d'\'el\'evation \'erron\'es
-\item D\'eveloppement d'outil permettant de mesurer des distances et surfaces sur des modeles d'elevation.
+\item D\'eveloppement d'outils permettant de mesurer distances et surfaces sur des mod\`eles d'\'el\'evation.
 \item Maintenance applicative
 \end{enumerate}
 \bigskip
 }
 
-
-\cventry{03/12 - 08/12, DoremiLabs}{Cin\'ema Num\'erique, d\'epartement R\&D}{Conception Impl\'ementation}{}{}{
+%\cventry{08/10 - 09/11}{Ensuite Informatique}{D\'eveloppement de processeurs d'analyse de situation en continue}{Conception, impl\'ementation}{Paris}{Environnement: C++, Qt, Flex/Bison, CMake, Git, GNU/Linux}
+\cventry{03/12 - 08/12, DoremiLabs}{Cin\'ema Num\'erique, d\'epartement R\&D}{Conception Impl\'ementation}{
+}{
 \begin{enumerate}[$\bullet$ ]
 \item D\'eveloppement d'une solution permettant la transmission d'évenements en direct dans les salles de cinéma
 \item Réception de flux en DVB-S et configuration de la connexion sur un ou plusieurs transpondeurs
@@ -137,8 +128,17 @@ Développement d'une solution permettant la visualisation et l'édition d'images
   \item Lecture flux dans plusieurs salles avec des configurations différentes (langues / sous-titres)
   \end{enumerate}
 \end{enumerate}
+}{
+%% \begin{enumerate}
+Contraintes temps r\'eel
+%%   \item Contexte fortement multi-thread\'e
+%%   \item \'Equipe de 2 personnes.
+%% \end{enumerate}
 \bigskip
 }
+
+
+
 
 
 \cventry{10/11 - 03/12, MargOconseil}{Finance des march\'es, d\'epartement R\&D}{Conception Impl\'ementation}{}{}{
@@ -208,14 +208,13 @@ Développement d'une solution permettant la visualisation et l'édition d'images
 %% \bigskip}
 
 % \section{Extra 1}
-% \cvlistitem{Item 1}
-% \cvlistitem{Item 2}
-% \cvlistitem[+]{Item 3}            % optional other symbol
+\cvlistitem{Item 1}
+\cvlistitem{Item 2}
+\cvlistitem[+]{Item 3}            % optional other symbol
 
-% \section{Extra 2}
-% \cvlistdoubleitem[\Neutral]{Item 1}{Item 4}
-% \cvlistdoubleitem[\Neutral]{Item 2}{Item 5}
-% \cvlistdoubleitem[\Neutral]{Item 3}{}
+\section{Extra 2}
+\cvlistdoubleitem[\Neutral]{Item 2}{Item 5}
+\cvlistdoubleitem[\Neutral]{Item 3}{}
 
 
 % Publications from a BibTeX file
